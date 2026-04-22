@@ -45,7 +45,7 @@ const portfolioData = {
     title: 'Mass Communication',
     subTitle: 'Human Connection',
     headshot:
-      'https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/GRheadshot.png?raw=true',
+      'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/GRheadshot.png',
     about:
       "Hi, my name is Gabe. I'm a people-driven, versatile communication specialist. I work in the realms of Multimedia Production, Human Dynamics, and the spaces in which they intersect.",
   },
@@ -97,17 +97,17 @@ const portfolioData = {
           title: 'Ratatouille Is Capitalist Propaganda And Alarmingly Racist',
           summary:
             "An essay critiquing Pixar's Ratatouille as deceptive social commentary, depicting the protagonist Remy as a racialized 'other'.",
-          url: 'https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/writing.rat.pdf?raw=true',
+          url: 'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/writing.rat.pdf',
         },
         {
           title: 'Doom Scrolling: How It Impacts Us',
           summary: 'An article examining the negative impacts of doom scrolling on student productivity and societal trust.',
-          url: 'https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/writing.doomscrolling.pdf?raw=true',
+          url: 'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/writing.doomscrolling.pdf',
         },
         {
           title: 'Is It Just Me, or Are People Ruder Now?',
           summary: 'An investigation into pandemic-era social shifts and the impact of social media algorithms on behavior.',
-          url: 'https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/writing.ruder.pdf?raw=true',
+          url: 'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/writing.ruder.pdf',
         },
       ],
     },
@@ -121,9 +121,9 @@ const portfolioData = {
         {
           name: 'Pattern Series',
           images: [
-            'https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/pattern.startablet.png?raw=true',
-            'https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/pattern.colorlasagna.png?raw=true',
-            'https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/pattern.matrix.png?raw=true',
+            'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/pattern.startablet.png',
+            'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/pattern.colorlasagna.png',
+            'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/pattern.matrix.png',
           ],
         },
       ],
