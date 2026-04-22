@@ -76,45 +76,72 @@ const portfolioData = {
     audio: {
       id: 'audio',
       title: 'Audio Production',
-      subtitle: 'Podcasting & Sound Design',
+      subtitle: 'Podcasting, Sound Design, Mixing',
       color: '#d946ef',
       icon: StudioMic,
       episodes: [
-        { title: "'The A.E.D.A Logs': Solaris Pt. 1", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
-        { title: "'Facultea' Podcast Clip - Dr. Jen Peterson", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
-        { title: "'Facultea' Podcast Clip - Dr. Elizabeth Coody", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
-        { title: "'True Story' Full Intro Theme", url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
+        { title: "'The A.E.D.A Logs': Solaris Pt. 1", url: '/the-aeda-logs.mp3' },
+        { title: "'Facultea' Podcast Clip - Dr. Jen Peterson", url: '/facultea-peterson.mp3' },
+        { title: "'Facultea' Podcast Clip - Dr. Elizabeth Coody", url: '/facultea-coody.mp3' },
+        { title: "'True Story' Full Intro Theme", url: '/true-story-intro-theme.mp3' },
       ],
     },
     writing: {
       id: 'writing',
       title: 'Writing Archive',
-      subtitle: 'Journalism & Essays',
+      subtitle: 'Journalism, Essays, Blogposts',
       color: '#f43f5e',
       icon: Feather,
       documents: [
         {
           title: 'Ratatouille Is Capitalist Propaganda And Alarmingly Racist',
           summary:
-            "An essay critiquing Pixar's Ratatouille as deceptive social commentary, depicting the protagonist Remy as a racialized 'other'.",
+            "An essay critiquing Pixar's Ratatouille as deceptive social commentary, depicting the protagonist Remy as a racialized 'other' unable to truly escape his social station.",
           url: 'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/writing.rat.pdf',
         },
         {
-          title: 'Doom Scrolling: How It Impacts Us',
-          summary: 'An article examining the negative impacts of doom scrolling on student productivity and societal trust.',
+          title:
+            'Doom Scrolling: How It Impacts Us And What You Can Do About It',
+          summary:
+            'An article examining the negative impacts of doom scrolling on student productivity and societal trust as a result of profit-driven algorithms prioritizing engagement over mental well-being.',
           url: 'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/writing.doomscrolling.pdf',
         },
         {
-          title: 'Is It Just Me, or Are People Ruder Now?',
-          summary: 'An investigation into pandemic-era social shifts and the impact of social media algorithms on behavior.',
+          title: 'Is It Just Me, or Are People Ruder Now? (It\'s Both)',
+          summary:
+            'An article investigating whether people have become ruder since the COVID-19 pandemic, describing the perceived shift as both \"behavioral\" social atrophy and a \"perceptive\" bias amplified by social media algorithms.',
           url: 'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/writing.ruder.pdf',
+        },
+        {
+          title: 'To Pin A Butterfly: A Literary (Psycho)Analysis',
+          summary:
+            'An essay analyzing David Henry Hwang\'s \'M. Butterfly\' through a psychoanalytic lens, arguing that the protagonist\'s romantic relationship is a delusional defense mechanism against masculine insecurity.',
+          url: 'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/writing.butterfly.pdf',
+        },
+        {
+          title: 'How To Make Enemies And Fuel The Opposition',
+          summary:
+            'A political analysis exploring the nature of polarized politics from the framing of discourse surrounding the crisis in Gaza.',
+          url: 'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/writing.makingenemies.pdf',
+        },
+        {
+          title: "'A Rock Sails By' Is Out Of This World",
+          summary:
+            'A creative review of Sean Grennan\'s play \'A Rock Sails By\', speaking to its presentation of cosmic mystery and grounded human emotion through the story of an astrophysicist grappling with her dementia diagnosis.',
+          url: 'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/writing.arocksailsby.pdf',
+        },
+        {
+          title: 'Finishing Fall Semester Strong',
+          summary:
+            'A short blog post providing advice for students approaching final exams, encouraging them to trust their semester-long preparation and prioritize sustainable focus.',
+          url: 'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/writing.finals.pdf',
         },
       ],
     },
     gallery: {
       id: 'gallery',
       title: 'Graphic Design',
-      subtitle: 'Vector Art & Mixed Media',
+      subtitle: 'Vector Art, Photoshop, Mixed Media',
       color: '#f97316',
       icon: ImageIcon,
       categories: [
@@ -124,6 +151,23 @@ const portfolioData = {
             'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/pattern.startablet.png',
             'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/pattern.colorlasagna.png',
             'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/pattern.matrix.png',
+            'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/pattern.braids.png',
+            'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/pattern.school.png',
+          ],
+        },
+        {
+          name: 'Logos',
+          images: [
+            'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/logo.inc.png',
+            'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/logo.facultea.png',
+          ],
+        },
+        {
+          name: 'Mixed Media',
+          images: [
+            'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/mixedmedia.hand.png',
+            'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/mixedmedia.visitor.png',
+            'https://raw.githubusercontent.com/TheGreatGabesby/Portfolio-Assets/main/mixedmedia.key.png',
           ],
         },
       ],
@@ -131,8 +175,8 @@ const portfolioData = {
     human: {
       id: 'human',
       title: 'Human Relations',
-      subtitle: 'Leadership & Community',
-      color: '#3b82f6',
+      subtitle: 'Leadership, Networking, Community',
+      color: '#007fff',
       icon: Users,
       items: [
         {
@@ -141,9 +185,19 @@ const portfolioData = {
           desc: 'Planning & Facilitating Group Meetings, Events, Outreach, & Discussions.',
         },
         {
-          title: 'Community Connections',
+          title: 'Growing Community Connections',
           role: 'Networking Host',
-          desc: 'Promotional On-Air Interviews with Siouxland Non-profit Leaders.',
+          desc: 'Promotional On-Air Interviews with Siouxland Non-profit Leaders & Representitives.',
+        },
+        {
+          title: 'Journalistic Advising',
+          role: 'Student Consultant',
+          desc: 'Assisting First-Year Journalism Students through applied SPJ Standards of Writing & Ethics.',
+        },
+        {
+          title: 'Campus Engagement',
+          role: 'Student Outreach',
+          desc: 'Coordinating, Conducting, & Editing Interviews with Students Across Campus.',
         },
       ],
     },
@@ -164,15 +218,21 @@ const portfolioData = {
     editorial: {
       id: 'editorial',
       title: 'Editorial Work',
-      subtitle: 'Direction & Design',
+      subtitle: 'Editorial Direction & Design',
       color: '#eab308',
       icon: Layout,
       roles: [
         {
           org: 'The Collegian Reporter',
           role: 'Editor-in-Chief',
-          desc: 'Manage Student News Stories and oversee content development.',
+          desc: 'Manage Student News Stories, oversee content development.',
           link: 'https://wordpress.morningside.edu/thecr/',
+        },
+        {
+          org: "Walt Whitman's Literary Legacy",
+          role: 'Design Editor',
+          desc: 'Layout & typography for undergraduate research.',
+          link: 'https://drive.google.com/file/d/1oRWPoqrV-8YNa08U2TIPWAuu0KmxMEj3/view',
         },
       ],
     },
