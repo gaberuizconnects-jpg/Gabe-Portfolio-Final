@@ -17,11 +17,8 @@ import {
   FileText,
   Volume2,
   VolumeX,
-  Code2,
-  Zap,
 } from "lucide-react";
 
-// --- Custom Icon: Studio Microphone (Clean Capsule) ---
 const StudioMic = ({ size = 24, className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -216,20 +213,6 @@ const portfolioData = {
           role: "Student Outreach",
           desc: "Coordinating, Conducting, & Editing Interviews with Students Across Campus.",
         },
-      ],
-    },
-    ai: {
-      id: "ai",
-      title: "LLM Coding",
-      subtitle: "Applied AI & Web Development",
-      color: "#a855f7",
-      icon: Cpu,
-      impactText:
-        "I built the website you're currently visiting from scratch, leveraging an in-depth understanding of AI Prompt Optimization and Design Principles.",
-      tech: [
-        { label: "Architecture", value: "React Single-File SPA" },
-        { label: "Styling", value: "Tailwind Utility CSS" },
-        { label: "Interface", value: "Responsive Bento Grid" },
       ],
     },
     editorial: {
@@ -766,22 +749,6 @@ const ContentRenderer = ({ section }) => {
       );
     case "writing":
       return <TerminalReader documents={section.documents} color={section.color} />;
-    case "ai":
-      return (
-        <div className="space-y-6 text-left p-2">
-          <p className="text-lg text-slate-300 leading-relaxed border-l-4 border-purple-500 pl-4 max-w-2xl">
-            {section.impactText}
-          </p>
-          <div className="grid md:grid-cols-3 gap-4 mt-8">
-            {section.tech.map((t, i) => (
-              <div key={i} className="bg-white/5 p-4 rounded-xl border border-white/10 flex flex-col justify-center">
-                <div className="text-purple-400 font-mono text-xs mb-1 uppercase">{t.label}</div>
-                <div className="text-white font-medium">{t.value}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
     case "contact":
       return (
         <div className="max-w-xl mx-auto text-left">
@@ -960,11 +927,7 @@ export default function App() {
         <NeonCard
           item={portfolioData.sections.human}
           onClick={setActiveSection}
-          className="lg:col-span-2"
-        />
-        <NeonCard
-          item={portfolioData.sections.ai}
-          onClick={setActiveSection}
+          className="lg:col-span-3"
         />
 
         {/* Row 3 (Gallery continues in col 1) */}
@@ -1014,7 +977,7 @@ export default function App() {
               </div>
               <button
                 onClick={() => setActiveSection(null)}
-                className="p-2 rounded-full hover:bg-white/10 text-slate-400 transition-colors z-10"
+                className="p-2 rounded-full hover:bg-white/10 text-slate-400 transition-colors"
               >
                 <X size={24} />
               </button>
