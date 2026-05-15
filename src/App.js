@@ -765,7 +765,7 @@ const ContentRenderer = ({ section }) => {
           <div className="mb-8 border-l-2 border-orange-500/30 pl-4">
             <h4 className="text-2xl font-light text-white mb-2">Visual Artifacts</h4>
             <p className="text-slate-400 text-sm max-w-2xl">
-              A curated collection of digital photography and abstract processing.
+              Digital Artwork.
             </p>
           </div>
           {section.categories.map((cat, index) => (
