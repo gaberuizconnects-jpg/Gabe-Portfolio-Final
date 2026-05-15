@@ -380,8 +380,8 @@ const AudioPlayer = ({ track, color }) => {
         </span>
       </div>
 
-      <div className="flex items-center justify-between mt-4">
-        <div className="flex items-center gap-2 w-1/4 group">
+      <div className="flex items-center justify-between mt-4 flex-col-reverse sm:flex-row gap-4 sm:gap-0">
+        <div className="flex items-center gap-2 w-full sm:w-1/4 group justify-center sm:justify-start">
           <button
             onClick={() => setIsMuted(!isMuted)}
             className="text-slate-400 hover:text-white transition-colors"
@@ -402,7 +402,7 @@ const AudioPlayer = ({ track, color }) => {
               setVolume(parseFloat(e.target.value));
               setIsMuted(false);
             }}
-            className="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-white opacity-50 group-hover:opacity-100 transition-opacity"
+            className="w-32 sm:w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-white opacity-50 group-hover:opacity-100 transition-opacity"
             style={{ accentColor: color }}
           />
         </div>
@@ -434,11 +434,12 @@ const AudioPlayer = ({ track, color }) => {
             }}
           />
         </div>
-        <div className="w-1/4"></div>
+        <div className="w-full sm:w-1/4 hidden sm:block"></div>
       </div>
     </div>
   );
 };
+
 
 const GalleryStage = ({ category, color }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -502,7 +503,7 @@ const NeonCard = ({ item, onClick, className = "" }) => {
   return (
     <button
       onClick={() => onClick(item)}
-      className={`group relative p-6 rounded-3xl bg-[#0a0a0a] border border-opacity-40 transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden cursor-pointer w-full text-left ${className}`}
+      className={`group relative p-5 md:p-6 rounded-3xl bg-[#0a0a0a] border border-opacity-40 transition-all duration-500 ease-out flex flex-col justify-between overflow-hidden cursor-pointer w-full text-left ${className}`}
       style={{
         borderColor: item.color,
         boxShadow: isHovered ? `0 0 20px ${item.color}40` : "none",
@@ -520,22 +521,20 @@ const NeonCard = ({ item, onClick, className = "" }) => {
           className="p-3 rounded-full bg-black/50 border border-white/10 text-white"
           style={{ color: item.color }}
         >
-          <Icon size={24} />
+          <Icon size={24} className="w-5 h-5 md:w-6 md:h-6" />
         </div>
         <ArrowUpRight
-          className={`transition-all duration-300 ${
-            isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-          }`}
+          className={`transition-all duration-300 opacity-100 md:opacity-0 md:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0`}
           color={item.color}
           size={24}
         />
       </div>
-      <div className="relative z-10 mt-6 text-left w-full">
-        <h3 className="text-2xl font-bold text-white mb-1 tracking-tight">
+      <div className="relative z-10 mt-4 md:mt-6 text-left w-full">
+        <h3 className="text-xl md:text-2xl font-bold text-white mb-1 tracking-tight">
           {item.title}
         </h3>
         <p
-          className="text-sm font-medium opacity-60"
+          className="text-xs md:text-sm font-medium opacity-60 transition-colors"
           style={{ color: isHovered ? item.color : "#94a3b8" }}
         >
           {item.subtitle}
@@ -545,22 +544,23 @@ const NeonCard = ({ item, onClick, className = "" }) => {
   );
 };
 
+
 const TerminalReader = ({ documents, color }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const docs = documents || [];
   const activeDoc = docs[selectedIndex];
 
   return (
-    <div className="flex flex-col h-[600px] border border-white/10 rounded-2xl overflow-hidden bg-[#050505] shadow-2xl relative">
+    <div className="flex flex-col h-[75vh] md:h-[600px] border border-white/10 rounded-2xl overflow-hidden bg-[#050505] shadow-2xl relative">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-rose-500/5 blur-3xl pointer-events-none" />
-      <div className="flex border-b border-white/10 bg-white/5 relative z-10 px-6 py-4 items-center gap-3">
+      <div className="flex border-b border-white/10 bg-white/5 relative z-10 px-4 md:px-6 py-4 items-center gap-3 shrink-0">
         <div className="w-3 h-3 rounded-full bg-rose-500 animate-pulse" />
         <span className="text-xs font-mono uppercase tracking-widest text-slate-400">
           // WRITING_ARCHIVE
         </span>
       </div>
       <div className="flex flex-1 overflow-hidden flex-col md:flex-row relative z-10">
-        <div className="w-full md:w-1/3 border-r border-white/10 overflow-y-auto bg-black/40 custom-scrollbar">
+        <div className="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-white/10 overflow-y-auto bg-black/40 custom-scrollbar max-h-[35vh] md:max-h-none shrink-0">
           {docs.map((doc, idx) => (
             <button
               key={idx}
@@ -596,7 +596,7 @@ const TerminalReader = ({ documents, color }) => {
             </button>
           ))}
         </div>
-        <div className="flex-1 p-8 overflow-y-auto relative bg-[#0a0a0a]">
+        <div className="flex-1 p-6 md:p-8 overflow-y-auto relative bg-[#0a0a0a] custom-scrollbar">
           <div className="relative z-10 max-w-lg">
             <span
               className="inline-block px-2 py-1 rounded text-[10px] font-mono mb-4 text-black font-bold"
@@ -850,10 +850,10 @@ export default function App() {
 
   return (
     <div className="min-h-screen w-full bg-[#030303] text-slate-200 p-4 md:p-8 lg:p-12 font-sans selection:bg-white/20 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto mb-12 border-b border-white/10 pb-8">
-        <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
-          <div className="flex flex-col md:flex-row gap-12 items-start flex-1">
-            <div className="w-full md:w-64 lg:w-72 aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 relative shrink-0">
+      <div className="max-w-7xl mx-auto mb-10 md:mb-12 border-b border-white/10 pb-8">
+        <div className="flex flex-col md:flex-row gap-8 items-center md:items-start justify-between">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start flex-1 w-full">
+            <div className="w-56 sm:w-64 max-w-[80vw] md:w-64 lg:w-72 aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 relative shrink-0">
               <img
                 src={portfolioData.header.headshot}
                 alt="Gabe Ruiz"
@@ -862,31 +862,31 @@ export default function App() {
               />
             </div>
 
-            <div className="space-y-8 flex-1 text-left pt-2">
+            <div className="space-y-6 md:space-y-8 flex-1 text-center md:text-left pt-2 w-full">
               <div>
-                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500 mb-4">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500 mb-2 md:mb-4">
                   {portfolioData.header.name}
                 </h1>
-                <h2 className="text-xl md:text-2xl font-light text-slate-400 tracking-widest uppercase flex items-center gap-3">
-                  {portfolioData.header.title}
-                  <span className="text-slate-400 font-light">—</span>
-                  {portfolioData.header.subTitle}
+                <h2 className="text-lg md:text-2xl font-light text-slate-400 tracking-widest uppercase flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-3">
+                  <span>{portfolioData.header.title}</span>
+                  <span className="hidden md:inline text-slate-400 font-light">—</span>
+                  <span className="text-sm md:text-2xl">{portfolioData.header.subTitle}</span>
                 </h2>
               </div>
 
-              <div className="space-y-3 border-l-2 border-emerald-500/20 pl-6 max-w-2xl">
-                <p className="text-emerald-400 font-mono text-sm tracking-[0.2em] uppercase font-bold">
+              <div className="space-y-3 border-l-2 md:border-l-2 border-emerald-500/20 pl-4 md:pl-6 max-w-2xl mx-auto md:mx-0 text-left">
+                <p className="text-emerald-400 font-mono text-xs md:text-sm tracking-[0.2em] uppercase font-bold">
                   About:
                 </p>
-                <p className="text-slate-400 text-lg leading-relaxed font-light italic">
+                <p className="text-slate-400 text-base md:text-lg leading-relaxed font-light italic">
                   {portfolioData.header.about}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col items-start md:items-end shrink-0 pt-4">
-            <div className="flex items-center gap-2 mb-2">
+          <div className="flex flex-col items-center md:items-end shrink-0 pt-0 md:pt-4 w-full md:w-auto">
+            <div className="flex items-center gap-2 mb-2 bg-emerald-500/10 px-4 py-2 md:px-0 md:py-0 md:bg-transparent rounded-full">
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
@@ -895,15 +895,15 @@ export default function App() {
                 SYSTEM ONLINE
               </span>
             </div>
-            <div className="text-[10px] text-slate-600 font-mono">
+            <div className="text-[10px] text-slate-600 font-mono hidden md:block">
               V.3.0.4 [NEON]
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[280px] gap-6 mb-24">
-        {/* Row 1 */}
+      {}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[240px] md:auto-rows-[280px] gap-4 md:gap-6 mb-24">
         <NeonCard
           item={portfolioData.sections.video}
           onClick={setActiveSection}
@@ -917,8 +917,6 @@ export default function App() {
           item={portfolioData.sections.writing}
           onClick={setActiveSection}
         />
-        
-        {/* Row 2 */}
         <NeonCard
           item={portfolioData.sections.gallery}
           onClick={setActiveSection}
@@ -927,14 +925,11 @@ export default function App() {
         <NeonCard
           item={portfolioData.sections.human}
           onClick={setActiveSection}
-          className="lg:col-span-3"
+          className="lg:col-span-2"
         />
-
-        {/* Row 3 (Gallery continues in col 1) */}
         <NeonCard
           item={portfolioData.sections.editorial}
           onClick={setActiveSection}
-          className="lg:col-span-2"
         />
         <NeonCard
           item={portfolioData.sections.contact}
@@ -943,32 +938,38 @@ export default function App() {
         />
       </div>
 
-      <footer className="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-600 text-xs font-mono">
+      <footer className="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-600 text-xs font-mono text-center md:text-left">
         <div>© 2025 GABE RUIZ. ALL RIGHTS RESERVED.</div>
         <div>DESIGNED WITH REACT & TAILWIND</div>
       </footer>
 
+      {}
       {activeSection && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8">
+        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-0 md:p-8 z-[100]">
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-xl"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm md:backdrop-blur-xl"
             onClick={() => setActiveSection(null)}
           />
-          <div className="relative w-full max-w-5xl bg-[#0f0f0f] border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col h-full md:h-auto md:max-h-[90vh]">
-            <div className="flex items-center justify-between p-6 border-b border-white/10 bg-[#0a0a0a]">
-              <div className="flex items-center gap-4">
+          <div className="relative w-full max-w-5xl bg-[#0f0f0f] border-t md:border border-white/10 rounded-t-3xl md:rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[90vh] md:h-auto md:max-h-[90vh] animate-in slide-in-from-bottom-8 md:slide-in-from-bottom-0 md:fade-in duration-300">
+            {/* Mobile Drag Handle Indicator */}
+            <div className="w-full flex justify-center pt-3 pb-1 md:hidden bg-[#0a0a0a]" onClick={() => setActiveSection(null)}>
+              <div className="w-12 h-1.5 bg-white/20 rounded-full" />
+            </div>
+            
+            <div className="flex items-center justify-between p-4 md:p-6 border-b border-white/10 bg-[#0a0a0a]">
+              <div className="flex items-center gap-3 md:gap-4">
                 <div
-                  className="p-3 rounded-full bg-white/5"
+                  className="p-2 md:p-3 rounded-full bg-white/5 shrink-0"
                   style={{ color: activeSection.color }}
                 >
-                  <activeSection.icon size={24} />
+                  <activeSection.icon size={24} className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div className="text-left">
-                  <h2 className="text-2xl font-bold text-white">
+                  <h2 className="text-xl md:text-2xl font-bold text-white leading-tight">
                     {activeSection.title}
                   </h2>
                   <p
-                    className="text-sm font-mono opacity-60"
+                    className="text-xs md:text-sm font-mono opacity-60 mt-0.5 line-clamp-1"
                     style={{ color: activeSection.color }}
                   >
                     {activeSection.subtitle}
@@ -977,12 +978,12 @@ export default function App() {
               </div>
               <button
                 onClick={() => setActiveSection(null)}
-                className="p-2 rounded-full hover:bg-white/10 text-slate-400 transition-colors"
+                className="p-2 rounded-full hover:bg-white/10 text-slate-400 transition-colors shrink-0"
               >
-                <X size={24} />
+                <X size={20} className="md:w-6 md:h-6" />
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto p-6 md:p-10 custom-scrollbar">
+            <div className="flex-1 overflow-y-auto p-4 md:p-10 custom-scrollbar pb-12 md:pb-10">
               <ContentRenderer section={activeSection} />
             </div>
           </div>
