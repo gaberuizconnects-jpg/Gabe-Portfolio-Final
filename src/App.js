@@ -21,7 +21,6 @@ import {
   Zap,
 } from "lucide-react";
 
-
 // --- Custom Icon: Studio Microphone (Clean Capsule) ---
 const StudioMic = ({ size = 24, className = "" }) => (
   <svg
@@ -116,43 +115,43 @@ const portfolioData = {
           title: "Ratatouille Is Capitalist Propaganda And Alarmingly Racist",
           summary:
             "An essay critiquing Pixar's Ratatouille as deceptive social commentary, depicting the protagonist Remy as a racialized 'other' unable to truly escape his social station.",
-          url: "https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/writing.rat.pdf?raw=true",
+          url: "https://cdn.jsdelivr.net/gh/TheGreatGabesby/Portfolio-Assets@main/writing.rat.pdf",
         },
         {
           title: "Doom Scrolling: How It Impacts Us And What You Can Do About It",
           summary:
             "An article examining the negative impacts of doom scrolling on student productivity and societal trust as a result of profit-driven algorithms prioritizing engagement over mental well-being.",
-          url: "https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/writing.doomscrolling.pdf?raw=true",
+          url: "https://cdn.jsdelivr.net/gh/TheGreatGabesby/Portfolio-Assets@main/writing.doomscrolling.pdf",
         },
         {
           title: "Is It Just Me, or Are People Ruder Now? (It's Both)",
           summary:
             "An article investigating whether people have become ruder since the COVID-19 pandemic, describing the perceived shift as both 'behavioral' social atrophy and a 'perceptive' bias amplified by social media algorithms.",
-          url: "https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/writing.ruder.pdf?raw=true",
+          url: "https://cdn.jsdelivr.net/gh/TheGreatGabesby/Portfolio-Assets@main/writing.ruder.pdf",
         },
         {
           title: "To Pin A Butterfly: A Literary (Psycho)Analysis",
           summary:
             "An essay analyzing David Henry Hwang's 'M. Butterfly' through a psychoanalytic lens, arguing that the protagonist's romantic relationship is a delusional defense mechanism against masculine insecurity.",
-          url: "https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/writing.butterfly.pdf?raw=true",
+          url: "https://cdn.jsdelivr.net/gh/TheGreatGabesby/Portfolio-Assets@main/writing.butterfly.pdf",
         },
         {
           title: "How To Make Enemies And Fuel The Opposition",
           summary:
             "A political analysis exploring the nature of polarized politics from the framing of discourse surrounding the crisis in Gaza.",
-          url: "https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/writing.makingenemies.pdf?raw=true",
+          url: "https://cdn.jsdelivr.net/gh/TheGreatGabesby/Portfolio-Assets@main/writing.makingenemies.pdf",
         },
         {
           title: "'A Rock Sails By' Is Out Of This World",
           summary:
             "A creative review of Sean Grennan's play 'A Rock Sails By', speaking to its presentation of cosmic mystery and grounded human emotion through the story of an astrophysicist grappling with her dementia diagnosis.",
-          url: "https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/writing.arocksailsby.pdf?raw=true",
+          url: "https://cdn.jsdelivr.net/gh/TheGreatGabesby/Portfolio-Assets@main/writing.arocksailsby.pdf",
         },
         {
           title: "Finishing Fall Semester Strong",
           summary:
             "A short blog post providing advice for students approaching final exams, encouraging them to trust their semester-long preparation and prioritize sustainable focus.",
-          url: "https://github.com/TheGreatGabesby/Portfolio-Assets/blob/main/writing.finals.pdf?raw=true",
+          url: "https://cdn.jsdelivr.net/gh/TheGreatGabesby/Portfolio-Assets@main/writing.finals.pdf",
         },
       ],
     },
@@ -263,7 +262,6 @@ const portfolioData = {
     },
   },
 };
-
 
 const AudioPlayer = ({ track, color }) => {
   const audioRef = useRef(null);
@@ -459,7 +457,6 @@ const AudioPlayer = ({ track, color }) => {
   );
 };
 
-
 const GalleryStage = ({ category, color }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const activeImage = category.images[selectedIndex];
@@ -565,7 +562,6 @@ const NeonCard = ({ item, onClick, className = "" }) => {
   );
 };
 
-
 const TerminalReader = ({ documents, color }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const docs = documents || [];
@@ -631,7 +627,6 @@ const TerminalReader = ({ documents, color }) => {
             <div className="text-slate-400 text-sm leading-relaxed font-mono border-l-2 border-white/10 pl-4 mb-8">
               {activeDoc?.summary}
             </div>
-            {}
             <a
               href={activeDoc?.url}
               target="_blank"
@@ -652,7 +647,6 @@ const TerminalReader = ({ documents, color }) => {
     </div>
   );
 };
-
 
 const ContentRenderer = ({ section }) => {
   const [currentTrack, setCurrentTrack] = useState(
@@ -763,10 +757,7 @@ const ContentRenderer = ({ section }) => {
       return (
         <div className="space-y-2 text-left">
           <div className="mb-8 border-l-2 border-orange-500/30 pl-4">
-            <h4 className="text-2xl font-light text-white mb-2">Visual Artifacts</h4>
-            <p className="text-slate-400 text-sm max-w-2xl">
-              Digital Artwork.
-            </p>
+            <p className="text-slate-400 text-sm max-w-2xl"></p>
           </div>
           {section.categories.map((cat, index) => (
             <GalleryStage key={index} category={cat} color={section.color} />
@@ -775,6 +766,22 @@ const ContentRenderer = ({ section }) => {
       );
     case "writing":
       return <TerminalReader documents={section.documents} color={section.color} />;
+    case "ai":
+      return (
+        <div className="space-y-6 text-left p-2">
+          <p className="text-lg text-slate-300 leading-relaxed border-l-4 border-purple-500 pl-4 max-w-2xl">
+            {section.impactText}
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-8">
+            {section.tech.map((t, i) => (
+              <div key={i} className="bg-white/5 p-4 rounded-xl border border-white/10 flex flex-col justify-center">
+                <div className="text-purple-400 font-mono text-xs mb-1 uppercase">{t.label}</div>
+                <div className="text-white font-medium">{t.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
     case "contact":
       return (
         <div className="max-w-xl mx-auto text-left">
@@ -867,7 +874,6 @@ const ContentRenderer = ({ section }) => {
   }
 };
 
-
 export default function App() {
   const [activeSection, setActiveSection] = useState(null);
 
@@ -929,8 +935,8 @@ export default function App() {
         </div>
       </div>
 
-      {}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[280px] gap-6 mb-24">
+        {/* Row 1 */}
         <NeonCard
           item={portfolioData.sections.video}
           onClick={setActiveSection}
@@ -944,6 +950,8 @@ export default function App() {
           item={portfolioData.sections.writing}
           onClick={setActiveSection}
         />
+        
+        {/* Row 2 */}
         <NeonCard
           item={portfolioData.sections.gallery}
           onClick={setActiveSection}
@@ -955,8 +963,15 @@ export default function App() {
           className="lg:col-span-2"
         />
         <NeonCard
+          item={portfolioData.sections.ai}
+          onClick={setActiveSection}
+        />
+
+        {/* Row 3 (Gallery continues in col 1) */}
+        <NeonCard
           item={portfolioData.sections.editorial}
           onClick={setActiveSection}
+          className="lg:col-span-2"
         />
         <NeonCard
           item={portfolioData.sections.contact}
@@ -970,7 +985,6 @@ export default function App() {
         <div>DESIGNED WITH REACT & TAILWIND</div>
       </footer>
 
-      {}
       {activeSection && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8">
           <div
@@ -1000,7 +1014,7 @@ export default function App() {
               </div>
               <button
                 onClick={() => setActiveSection(null)}
-                className="p-2 rounded-full hover:bg-white/10 text-slate-400 transition-colors"
+                className="p-2 rounded-full hover:bg-white/10 text-slate-400 transition-colors z-10"
               >
                 <X size={24} />
               </button>
